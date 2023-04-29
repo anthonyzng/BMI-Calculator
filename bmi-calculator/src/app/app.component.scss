@@ -1,0 +1,65 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 80%;
+    margin: 5%;
+}
+.mat-mdc-card{
+    width: 100%;
+    margin: 1%;
+    padding: 2%;
+    border-radius: 50px;
+    border: 2px solid cadetblue;
+}
+.mat-mdc-card-title, .mat-mdc-card-subtitle{
+    margin: 5%;
+    border-bottom: 2px solid black;
+}
+p{
+    border-top: 2px solid black;
+    padding: 5px;
+}
+.mat-mdc-form-field{
+    margin: 2%;
+} 
+.bim_des_sub{
+    border-radius: 25px;
+    margin: 8px;
+}
+#icon_cal{
+    font-size: 50px;
+    color: darkmagenta;
+}
+#light{
+    border: 2px solid rgb(221, 146, 76);
+}
+#normal{
+    border: 2px solid rgb(91, 214, 122);
+}
+#heavy{
+    border: 2px solid rgb(101, 158, 67);
+}
+#obesity{
+    border: 2px solid rgb(196, 66, 66);
+}
+#btn_contanier{
+    margin: 50px;
+}
+#btn_sub{
+    font-size: 25px;
+    margin: 5px;
+}
+#bim_cal{
+    background-color: lightgoldenrodyellow;
+}
+
+#bim_des{
+    background-color: honeydew;
+}
+
+@media (max-width:800px) {
+    .container{
+        flex-direction: column;
+    }
+}

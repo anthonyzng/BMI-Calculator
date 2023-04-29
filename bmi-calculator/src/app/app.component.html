@@ -1,0 +1,77 @@
+<title>BMI - Calculator</title>
+<body>
+  <div class="container">
+    <mat-card id="bim_cal">
+      <mat-card-title-group>
+        <mat-card-title>
+          <h2>BMI Calculator
+          <span class="material-icons" id="icon_cal">calculate</span>
+        </h2>
+        </mat-card-title>
+        <mat-card-subtitle>
+          BMI, or Body Mass Index, is a measure of body fat based on a person's weight and height. It is commonly used to determine if a person is underweight, normal weight, overweight, or obese. BMI can help individuals assess their overall health and potential risks for diseases associated with excess weight
+          <p>Weight / Height ^ 2 = BMI</p>
+        </mat-card-subtitle>
+      </mat-card-title-group>
+      <mat-card-content>
+        <form class="example-form" (ngSubmit)="onSubmit()">
+          <mat-form-field class="example-full-width">
+            <mat-label>Weight</mat-label>
+            <input type="text" matInput [formControl]="weightFormControl" placeholder="Ex. 83.1">
+            <mat-error *ngIf="weightFormControl.hasError('required')">
+              Weight can't be <strong>null</strong>
+            </mat-error>
+            <mat-error *ngIf="weightFormControl.hasError('pattern')">
+              Please enter a valid positive number & only accept 2 - 3 integer and 1 decimal.
+            </mat-error>
+          </mat-form-field>
+          /
+          <mat-form-field class="example-full-width">
+            <mat-label>Height</mat-label>
+            <input type="text" matInput [formControl]="heightFormControl" placeholder="Ex. 172.1" >
+            <mat-error *ngIf="heightFormControl.hasError('required')">
+              Height can't be <strong>null</strong>
+            </mat-error>
+            <mat-error *ngIf="heightFormControl.hasError('pattern')">
+              Please enter a valid positive number & only accept 3 integer and 1 decimal.
+            </mat-error>
+          </mat-form-field>
+          <div id="btn_contanier">
+          <button type="submit" mat-raised-button color="primary" [disabled]="weightFormControl.invalid || heightFormControl.invalid" id="btn_sub">
+            Calculate
+          </button>
+          <button type="reset" mat-raised-button color="warn" mat-button id="btn_sub">Clear</button>
+          </div>
+        </form>        
+      </mat-card-content>
+      <mat-card-footer>
+        <div *ngIf="bmi !== null">
+          Your BMI is {{ bmi | number: '1.1-1' }}
+        </div>
+      </mat-card-footer>
+    </mat-card>
+    <mat-card id="bim_des">
+      <mat-card-title-group>
+        <mat-card-title>How can I determine if my weight is within a healthy range as an adult aged 18 years or older?</mat-card-title>
+      </mat-card-title-group>
+      <mat-card-content>
+        <div class="bim_des_sub" id="light">
+          <h4>BMI < 18.5</h4>
+          <p>This is the interpretation of a BMI value less than 18.5. It means that the person is underweight and should engage in more physical activity, have a balanced diet, and increase overall fitness to maintain good health.</p>
+        </div>
+        <div class="bim_des_sub" id="normal">
+          <h4>18.5 ≤ BMI < 24 </h4>
+          <p>Congratulations! You have a "healthy weight" range with a BMI between 18.5 and 24. Keep up the good work!</p>
+        </div>
+        <div class="bim_des_sub" id="heavy">
+          <h4> 24 ≤ BMI < 27 </h4>
+          <p>You are considered to be overweight, and it is recommended that you take action to manage your weight to a healthy level."</p>
+        </div>
+        <div class="bim_des_sub" id="obesity">
+          <h4>BMI ≥ 27 </h4>
+          <p>Ah~ "Obesity", you need to immediately start practicing "Healthy Weight Management"!</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</body>
